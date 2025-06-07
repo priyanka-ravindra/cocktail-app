@@ -1,0 +1,50 @@
+<div
+  class="min-h-screen bg-gradient-to-b from-purple-100 to-pink-50 flex flex-col items-center justify-center text-center p-4"
+>
+  <!-- Heading -->
+  <div class="mb-10">
+    <p class="text-lg text-gray-700 max-w-xl mx-auto">
+      Discover classic and creative cocktails. Start with a sip of Margarita or
+      Mojito!
+    </p>
+  </div>
+
+  <!-- Cards -->
+  <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 max-w-4xl w-full">
+    <!-- Mojito Card -->
+    <div
+      (click)="goToCocktail('Mojito')"
+      class="cursor-pointer bg-white hover:bg-green-50 transition duration-300 border rounded-xl shadow-lg overflow-hidden hover:scale-105"
+    >
+      <img
+        src="https://www.thecocktaildb.com/images/media/drink/metwgh1606770327.jpg"
+        alt="Mojito"
+        class="w-full object-cover"
+      />
+      <div class="p-4">
+        <h3 class="text-xl font-bold text-green-700">Mojito</h3>
+        <p class="text-sm text-gray-600">
+          A refreshing mix of lime, mint and rum.
+        </p>
+      </div>
+    </div>
+
+    <!-- Margarita Card -->
+    <div
+      (click)="goToCocktail('Margarita')"
+      class="cursor-pointer bg-white hover:bg-yellow-50 transition duration-300 border rounded-xl shadow-lg overflow-hidden hover:scale-105"
+    >
+      <img
+        src="https://www.thecocktaildb.com/images/media/drink/wpxpvu1439905379.jpg"
+        alt="Margarita"
+        class="w-full object-cover"
+      />
+      <div class="p-4">
+        <h3 class="text-xl font-bold text-yellow-600">Margarita</h3>
+        <p class="text-sm text-gray-600">
+          A tangy tequila classic with lime and salt.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

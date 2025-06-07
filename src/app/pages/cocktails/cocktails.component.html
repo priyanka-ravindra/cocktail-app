@@ -1,0 +1,52 @@
+<div class="p-4">
+  <div class="mb-4 flex items-center gap-3">
+    <label for="filterType" class="font-medium whitespace-nowrap"
+      >Filter by Type:</label
+    >
+    <select
+      id="filterType"
+      [(ngModel)]="filter"
+      (change)="applyFilter(filter)"
+      class="px-3 py-2 border rounded max-w-sm"
+    >
+      <option value="All">All</option>
+      <option value="Alcoholic">Alcoholic</option>
+      <option value="Non alcoholic">Non-Alcoholic</option>
+    </select>
+  </div>
+
+  <div *ngIf="loading" class="text-center py-8">
+    <div class="text-purple-600 animate-pulse text-lg font-medium">
+      Loading cocktails...
+    </div>
+  </div>
+
+  <!-- No results message -->
+  <div *ngIf="!loading && filtered.length === 0" class="text-center py-8">
+    <div class="text-gray-500 text-lg">
+      <i class="fas fa-search mb-3 text-3xl block"></i>
+      <p class="mb-2">No drinks found</p>
+      <p class="text-sm">Try adjusting your filter selection</p>
+    </div>
+  </div>
+
+  <!-- Drinks grid -->
+  <div
+    *ngIf="filtered.length > 0"
+    class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4"
+  >
+    <div
+      *ngFor="let drink of filtered"
+      (click)="goToIngredients(drink.idDrink)"
+      class="cursor-pointer border rounded p-3 shadow hover:bg-purple-50"
+    >
+      <img
+        [src]="drink.strDrinkThumb"
+        alt="Drink"
+        class="rounded-md mb-2 w-full object-cover"
+      />
+      <h3 class="text-lg font-bold">{{ drink.strDrink }}</h3>
+      <p>{{ drink.strAlcoholic }}</p>
+    </div>
+  </div>
+</div>
